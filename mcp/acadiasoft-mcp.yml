@@ -1,0 +1,32 @@
+generated: '2026-09-06'
+method: searched
+source: web search plus live probes on 2026-09-06 of Acadia's surviving hosts and of
+  the LSEG remote MCP endpoint
+status: none
+name: Acadia (no MCP server published)
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: unknown
+  verified: searched
+note: 'Acadia ships no MCP server, hosted or local, and none could be derived: deriving
+  a candidate tool list requires an OpenAPI, and Acadia publishes none. No pointer
+  of type MCPServer is emitted.'
+rejected_candidates:
+- endpoint: https://api.analytics.lseg.com/lfa/mcp/server-cl
+  name: LSEG official remote MCP server
+  rejected: true
+  reason: 'OWNERSHIP — this is the parent group''s server, not Acadia''s. It is operated
+    by LSEG''s data & analytics business and serves LSEG financial content (pricing,
+    reference data, news, market analysis). Nothing about it addresses Acadia''s
+    post-trade margin, collateral or agreement products. Crediting Acadia with it
+    would attribute an agent surface to a division that did not build one.'
+  probe: 'POST tools/list on 2026-09-06 returned HTTP 401 {"code":-32000,"message":"Missing
+    Bearer token"} with WWW-Authenticate: Bearer realm="MCP Server",
+    resource_metadata="https://api.analytics.lseg.com/.well-known/oauth-protected-resource/lfa/mcp/server-cl".
+    The tool list is auth-gated, so its contents could not be inspected to test the
+    ownership question further — but the product scope alone settles it.'
+  recorded_for: preventing a future enrichment round from wiring this endpoint onto
+    the Acadia record.

@@ -1,0 +1,46 @@
+generated: '2026-09-06'
+method: searched
+source: https://github.com/AcadiaSoft/simm-lib/tags plus the dated "Updates" section
+  of https://github.com/AcadiaSoft/simm-lib/blob/master/README.md
+subject: simm-lib — Acadia's ISDA SIMM implementation. THIS IS NOT AN API CHANGELOG.
+  Acadia publishes no public API and therefore no API changelog; what follows is the
+  dated, versioned release history of its one public software artifact.
+scheme: semver-ish (major.minor.patch, tracking the ISDA SIMM methodology version)
+current_version: 2.5.0
+current_version_date: '2022-09-19'
+format: git tags + a hand-maintained Updates section in the README
+url: https://github.com/AcadiaSoft/simm-lib/tags
+github_releases_published: false
+github_releases_note: The repository has ZERO published GitHub Releases; the eight
+  version tags carry no release notes, so the README Updates section is the only prose
+  changelog and it covers only the most recent version.
+entries:
+- version: 2.5.0
+  date: '2022-09-19'
+  breaking: false
+  additions:
+  - Full recalibration and industry backtesting of the SIMM methodology to v2.5
+  - Passing one-day benchmarks for v2.5 under the Simmple module across multiple applicable
+    regulations, in both Segregated and Unsegregated modes
+  - Passing ten-day benchmarks for v2.5 under the same conditions
+  highlight: Tracks the ISDA SIMM v2.5 recalibration.
+- version: 2.4.0.1
+  date: '2021-10-01'
+  breaking: false
+  fixes:
+  - 'ISSUE-17: fixed a typo in the FX Correlation'
+  highlight: Patch release; the newest version JitPack has ever built successfully.
+- version: 2.4.0
+  date: '2021-09-28'
+  breaking: false
+  highlight: SIMM v2.4 methodology update.
+- version: 2.3.0
+  date: '2020-10-05'
+  breaking: false
+  fixes:
+  - 'ISSUE-12: aligned the version across all module poms'
+  highlight: SIMM v2.3 methodology update.
+earlier_tags: [2.2.1, 2.2.0, 2.1.0, 2.0.0]
+note: 'No release has been cut since 2022-09-19, and the last commit of any kind was
+  2023-07-25. See lifecycle/acadiasoft-lifecycle.yml — the README now directs users
+  to the Open Source Risk Engine for future SIMM versions.'

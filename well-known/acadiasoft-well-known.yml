@@ -1,0 +1,71 @@
+generated: '2026-09-06'
+method: probed
+source: direct HTTPS probes on 2026-09-06 of every host this record knows — Acadia's
+  own registrable domain and www, the surviving customer portal host, the surviving
+  Webflow microsite, and the LSEG host the Website pointer resolves to
+result: none
+note: 'NO WELL-KNOWN DOCUMENT WAS FOUND ON ANY HOST. acadia.inc and www.acadia.inc
+  answer 301 to www.lseg.com for every /.well-known/* path — there is no document
+  behind the redirect. portal.acadiasoft.com answers 302 to its OAuth2 login for every
+  path. cadence.acadia.inc returns a Webflow 404 stub ("Invalid .well-known") and
+  www.lseg.com returns its 54KB HTML 404 page, so neither is a soft-200 false positive.
+  Separately, the portal DOES run an OAuth2 authorization server (POST-less GET to
+  /identity/oauth2/authz?realm=docportal renders a login page), but its RFC 8414 /
+  OpenID discovery documents at /identity/.well-known/openid-configuration and
+  /identity/.well-known/oauth-authorization-server return HTTP 401 — the discovery
+  metadata is itself authenticated, which is unusual and worth recording. No WellKnown
+  or SecurityTxt pointer is emitted, because nothing was served.'
+hosts:
+- host: acadia.inc
+  documents:
+  - {path: /.well-known/security.txt, status: 301, file: null}
+  - {path: /.well-known/openid-configuration, status: 301, file: null}
+  - {path: /.well-known/oauth-authorization-server, status: 301, file: null}
+  - {path: /.well-known/oauth-protected-resource, status: 301, file: null}
+  - {path: /.well-known/api-catalog, status: 301, file: null}
+  - {path: /.well-known/ai-plugin.json, status: 301, file: null}
+  - {path: /.well-known/agent-card.json, status: 301, file: null}
+  - {path: /.well-known/agent.json, status: 301, file: null}
+- host: www.acadia.inc
+  documents:
+  - {path: /.well-known/security.txt, status: 301, file: null}
+  - {path: /.well-known/openid-configuration, status: 301, file: null}
+  - {path: /.well-known/oauth-authorization-server, status: 301, file: null}
+  - {path: /.well-known/oauth-protected-resource, status: 301, file: null}
+  - {path: /.well-known/api-catalog, status: 301, file: null}
+  - {path: /.well-known/ai-plugin.json, status: 301, file: null}
+  - {path: /.well-known/agent-card.json, status: 301, file: null}
+  - {path: /.well-known/agent.json, status: 301, file: null}
+- host: portal.acadiasoft.com
+  documents:
+  - {path: /.well-known/security.txt, status: 302, file: null}
+  - {path: /.well-known/openid-configuration, status: 302, file: null}
+  - {path: /.well-known/oauth-authorization-server, status: 302, file: null}
+  - {path: /.well-known/oauth-protected-resource, status: 302, file: null}
+  - {path: /.well-known/api-catalog, status: 302, file: null}
+  - {path: /.well-known/ai-plugin.json, status: 302, file: null}
+  - {path: /.well-known/agent-card.json, status: 302, file: null}
+  - {path: /.well-known/agent.json, status: 302, file: null}
+  - {path: /identity/.well-known/openid-configuration, status: 401, file: null}
+  - {path: /identity/.well-known/oauth-authorization-server, status: 401, file: null}
+  - {path: /identity/.well-known/jwks.json, status: 401, file: null}
+- host: cadence.acadia.inc
+  documents:
+  - {path: /.well-known/security.txt, status: 404, file: null}
+  - {path: /.well-known/openid-configuration, status: 404, file: null}
+  - {path: /.well-known/oauth-authorization-server, status: 404, file: null}
+  - {path: /.well-known/oauth-protected-resource, status: 404, file: null}
+  - {path: /.well-known/api-catalog, status: 404, file: null}
+  - {path: /.well-known/ai-plugin.json, status: 404, file: null}
+  - {path: /.well-known/agent-card.json, status: 404, file: null}
+  - {path: /.well-known/agent.json, status: 404, file: null}
+- host: www.lseg.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404, file: null}
+  - {path: /.well-known/openid-configuration, status: 404, file: null}
+  - {path: /.well-known/oauth-authorization-server, status: 404, file: null}
+  - {path: /.well-known/oauth-protected-resource, status: 404, file: null}
+  - {path: /.well-known/api-catalog, status: 404, file: null}
+  - {path: /.well-known/ai-plugin.json, status: 404, file: null}
+  - {path: /.well-known/agent-card.json, status: 404, file: null}
+  - {path: /.well-known/agent.json, status: 404, file: null}

@@ -1,0 +1,66 @@
+generated: '2026-09-06'
+method: searched
+source: https://github.com/AcadiaSoft/simm-lib — plus registry metadata probes of Maven
+  Central (search.maven.org), JitPack, npm, PyPI and pkg.go.dev on 2026-09-06
+package_count: 1
+entry_count: 2
+official_sdk_count: 0
+entry_note: one package, listed twice — once as the first-party source distribution and once as the third-party JitPack build channel that resolves it.
+note: 'Acadia publishes exactly ONE public software package, and it is NOT a client
+  SDK for the Acadia API. simm-lib is a first-party MIT-licensed Java implementation
+  of the ISDA SIMM initial-margin model (Copyright Acadia, Inc. in every source header),
+  useful to anyone computing initial margin whether or not they are an Acadia customer.
+  Because no client library for AcadiaPlus / Margin Manager is published anywhere,
+  NO `SDKs` pointer is emitted for this record — sdk_count is genuinely zero and
+  crediting a risk-model library as an API SDK would misstate what Acadia ships.
+  DISTRIBUTION FINDING: simm-lib is source-only. It is absent from Maven Central under
+  every groupId it declares (com.acadiasoft.im, numFound 0) despite carrying a complete
+  multi-module Maven pom, so the README''s only documented install path is `git clone`
+  + `mvn compile`. The one binary channel that exists is JitPack build-on-demand,
+  which is a third-party service building the GitHub tags rather than an Acadia publish.
+  DECAY SIGNAL: the newest tag is 2.5.0 (2022-09-19) and the last commit to master is
+  2023-07-25, whose entire content was adding a pointer to the Open Source Risk Engine.
+  The README states plainly that for all FUTURE versions of SIMM, users should go to
+  ORE — a first-party, dated statement that this library is at end of line.'
+packages:
+- name: simm-lib
+  language: java
+  registry: null
+  official: true
+  version: 2.5.0
+  published: '2022-09-19'
+  version_source: git tag 2.5.0 on AcadiaSoft/simm-lib (no registry release exists)
+  latest_commit: '2023-07-25'
+  license: MIT
+  repository: https://github.com/AcadiaSoft/simm-lib
+  maven_group_id: com.acadiasoft.im
+  maven_artifact_id: im-parent
+  modules: [base, simm, simm-ple, schedule]
+  install: git clone https://github.com/AcadiaSoft/simm-lib && mvn compile
+  description: Implementation of ISDA SIMM 2.5 (and all prior versions) plus the ISDA
+    Schedule model, consuming ISDA CRIF-formatted input and returning initial margin
+    in USD.
+  stars: 62
+  forks: 38
+  note: 'Not an Acadia API client. Requires a separate ISDA licence for commercial use
+    of the SIMM methodology (README directs licensing questions to isdalegal@isda.org).'
+- name: com.github.AcadiaSoft:simm-lib
+  language: java
+  registry: jitpack
+  official: false
+  version: 2.4.0.1
+  published: '2021-10-01'
+  version_source: https://jitpack.io/api/builds/com.github.AcadiaSoft/simm-lib/latest
+  repository: https://github.com/AcadiaSoft/simm-lib
+  note: 'THIRD-PARTY DISTRIBUTION, recorded for consumer accuracy rather than as an
+    Acadia publish. JitPack builds Acadia''s GitHub tags on demand; the newest tag
+    that has ever built green is 2.4.0.1, while 2.5.0 is stuck reporting "Building".
+    So a consumer resolving simm-lib from JitPack today gets a 2021 artifact, one
+    minor version behind the source, and the `published` date above is the tag''s
+    commit date, not a publish event Acadia performed.'
+registries_checked:
+- {registry: maven-central, query: 'g:com.acadiasoft', result: 0 artifacts}
+- {registry: maven-central, query: 'g:"com.acadiasoft.im"', result: 0 artifacts}
+- {registry: jitpack, query: com.github.AcadiaSoft/simm-lib, result: '2.4.0.1 ok, 2.5.0 Building'}
+- {registry: npm, query: acadia margin, result: no first-party package}
+- {registry: pypi, query: 'acadiasoft, simm-lib', result: '404 both'}

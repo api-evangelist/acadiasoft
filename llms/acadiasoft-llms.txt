@@ -1,0 +1,80 @@
+# Acadia
+
+> Acadia (founded 2009 as AcadiaSoft) provides risk, margin and collateral management
+> services for the global uncleared OTC derivatives market. It has operated as part of
+> LSEG Post Trade since LSEG's December 2022 acquisition, and its product suite is now
+> presented as the Streamline and Analyse pillars of LSEG Post Trade Solutions.
+
+<!--
+generated: 2026-09-06
+method: generated
+source: assembled by API Evangelist from apis.yml and the artifacts in this repository;
+        Acadia serves no /llms.txt of its own (acadia.inc 301s every path to lseg.com).
+-->
+
+## What Acadia does
+
+Acadia's AcadiaPlus platform connects more than 2,000 market participants for initial
+margin calculation, margin call messaging, reconciliation, dispute resolution, payment
+and settlement across OTC bilateral, OTC-cleared, exchange-traded derivatives, repo,
+MSFTA and securities lending and borrowing.
+
+- Streamline (workflow): Agreement Manager, IM Exposure Manager, Collateral Manager,
+  Margin Manager, Payments Manager, Settlement Manager, Relay
+- Analyse (risk suite): Risk Analytics Lab, IM Threshold Monitor, IM Risk Generator,
+  IM Recalibration Analytics, Pre-Trade Analytics, IM Backtesting and Benchmarking,
+  Capital Calculation, Industry Risk Classification, Data Exploration, Core Risk Generator
+- Advise (services): model risk management and validation, valuations, UMR compliance,
+  Open Source Risk Engine
+
+## API status — read this before trying to integrate
+
+Acadia's own product factsheets state that Margin Manager is "accessed via Web user
+interface, direct API or SFTP". That API is real, and it is entirely private:
+
+- There is NO public OpenAPI, Swagger, GraphQL, AsyncAPI, gRPC or WSDL contract.
+  Probed 2026-09-06 across acadia.inc, www.acadia.inc, portal.acadiasoft.com,
+  cadence.acadia.inc and www.lseg.com.
+- There is NO public developer portal, API reference, quickstart or sandbox.
+- The product documentation portal is https://portal.acadiasoft.com/ — an Atlassian
+  Confluence instance (realm "docportal") that 302s every anonymous request to an
+  OAuth2 authorization endpoint. Access requires a customer account.
+- There is NO MCP server, no A2A agent card, no llms.txt and no /.well-known document
+  of any kind on any Acadia host.
+- There is NO status page (status.acadia.inc and status.acadiasoft.com do not resolve)
+  and no published pricing, rate limits, SLA or deprecation policy.
+
+An agent cannot call Acadia. Integration begins with a commercial conversation:
+https://www.lseg.com/en/post-trade/solutions/acadia
+
+## What Acadia does publish publicly
+
+- simm-lib — https://github.com/AcadiaSoft/simm-lib
+  MIT-licensed Java implementation of the ISDA SIMM initial margin model (v2.5 and all
+  prior versions) plus the ISDA Schedule method. Consumes ISDA CRIF-formatted input and
+  returns initial margin in USD. Passes ISDA's own one-day and ten-day benchmark suites.
+  Not on Maven Central; built from source, or resolved via JitPack.
+  Latest tag 2.5.0 (2022-09-19); last commit 2023-07-25.
+  The README directs users to the Open Source Risk Engine
+  (https://github.com/OpenSourceRisk/Engine) for all future SIMM versions.
+
+## Standards Acadia speaks
+
+- ISDA SIMM 2.5 — benchmark-verified in simm-lib
+- ISDA CRIF (Common Risk Interchange Format) — the library's entire input surface
+- ISDA Schedule (grid) initial margin method
+
+## Links
+
+- Product: https://www.lseg.com/en/post-trade/solutions/acadia
+- Streamline: https://www.lseg.com/en/post-trade/solutions/streamline
+- Margin Manager: https://www.lseg.com/en/post-trade/solutions/streamline/margin-manager
+- Source: https://github.com/AcadiaSoft
+- Customer portal (authenticated): https://portal.acadiasoft.com/
+- Acquisition: https://www.lseg.com/en/media-centre/press-releases/2022/lseg-to-acquire-acadia
+
+## About this file
+
+This is a third-party profile maintained by API Evangelist (https://apievangelist.com).
+It is not authored or endorsed by Acadia or LSEG. Everything here was read from public
+surfaces with no credentials. Corrections: https://github.com/api-evangelist/acadiasoft

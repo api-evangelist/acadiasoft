@@ -1,0 +1,21 @@
+generated: '2026-09-06'
+method: searched
+source: https://www.lseg.com/en/post-trade/solutions/acadia and its product sub-pages
+  (Margin Manager, Collateral Manager, Agreement Manager, Payments Manager, Settlement
+  Manager, Relay), reviewed 2026-09-06
+plan_count: 0
+currency: null
+note: 'Acadia publishes NO pricing of any kind. There is no pricing page, no plan
+  table, no rate card and no published unit of charge on any reachable Acadia or LSEG
+  Post Trade surface. Every product page ends in a contact form or a downloadable
+  factsheet; commercial terms are negotiated per institution. This is the expected
+  posture for a bilaterally-contracted post-trade market-infrastructure vendor whose
+  buyers are banks, buy-side firms and fund administrators, but it is recorded as an
+  honest zero rather than omitted. No `Pricing` pointer is emitted, because there is
+  no pricing page to point at.'
+plans: []
+evidence:
+- {url: 'https://www.lseg.com/en/post-trade/solutions/acadia', status: 200, finding: product
+    suite listing, no pricing}
+- {url: 'https://www.lseg.com/en/post-trade/solutions/streamline/margin-manager', status: 200,
+  finding: 'factsheet PDF + contact-us, no pricing'}

@@ -1,0 +1,51 @@
+generated: '2026-09-06'
+method: searched
+source: https://github.com/AcadiaSoft/simm-lib/blob/master/README.md, GitHub tag and
+  commit history, plus live host probes on 2026-09-06
+subject: 'Scoped to the one public artifact Acadia ships (simm-lib) and to the company''s
+  own web estate. There is no public lifecycle policy for the AcadiaPlus product APIs,
+  because there is no public API contract.'
+api_versioning:
+  scheme: null
+  detail: Not published. No public API contract exists to version.
+status_page:
+  present: false
+  url: null
+  detail: 'Probed status.acadia.inc and status.acadiasoft.com on 2026-09-06 — neither
+    resolves. No status page is reachable on any Acadia host, and the LSEG post-trade
+    pages link none. No `StatusPage` pointer is emitted.'
+deprecation_policy:
+  present: false
+  url: null
+  detail: 'No formal deprecation policy, no documented Sunset/Deprecation (RFC 8594)
+    header behaviour. No `Deprecation` pointer is emitted.'
+sla:
+  present: false
+  detail: Not published publicly; the LSEG Margin Manager page routes all technical
+    questions to a contact form.
+corporate_lifecycle:
+  event: acquisition
+  acquirer: London Stock Exchange Group (LSEG)
+  announced: '2022-12-19'
+  evidence: https://www.lseg.com/en/media-centre/press-releases/2022/lseg-to-acquire-acadia
+  prior_event: LSEG acquired a circa 16% minority stake in AcadiaSoft in June 2018.
+  brand_state: 'Acadia is now branded "Acadia - An LSEG Business" and its product suite
+    is presented as the Streamline and Analyse pillars of LSEG Post Trade.'
+  web_estate: 'acadia.inc 301s wholesale to www.lseg.com/en/post-trade/solutions/acadia
+    (probed 2026-09-06); acadiasoft.com no longer resolves at the apex. DMARC on both
+    Acadia domains reports to rua@lseg.com.'
+artifact_lifecycle:
+- artifact: simm-lib
+  state: end-of-line
+  evidence: https://github.com/AcadiaSoft/simm-lib/blob/master/README.md
+  statement: '"For all future versions of SIMM, visit Open-Source Risk Engine" — a
+    first-party, dated succession notice. The commit that added it (cefc23b4,
+    2023-07-25) is the newest commit on master and its whole content was adding that
+    pointer, so the last thing Acadia did to this repository was hand it off.'
+  successor: https://github.com/OpenSourceRisk/Engine
+  last_release: {version: 2.5.0, date: '2022-09-19'}
+  last_commit: '2023-07-25'
+  repository_archived: false
+  note: 'The repository is NOT flagged archived on GitHub, so the succession notice
+    is discoverable only by reading the README. That is a real discoverability gap
+    for the 38 forks and 62 stargazers still pointed at it.'

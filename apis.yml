@@ -1,17 +1,35 @@
 aid: acadiasoft
 name: Acadia
-description: 'Acadia is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Acadia, founded in 2009 as AcadiaSoft, provides risk, margin and collateral management
+  services to the global uncleared OTC derivatives market and now operates as part of LSEG Post Trade
+  following LSEG''s December 2022 acquisition. Its AcadiaPlus platform — Agreement Manager, Margin
+  Manager, Collateral Manager, IM Exposure Manager, Payments Manager, Settlement Manager and Relay,
+  alongside the Risk Suite analytics services — connects more than 2,000 market participants for
+  initial-margin calculation, margin-call messaging, reconciliation, dispute resolution and settlement.
+  Acadia''s own factsheets state its applications are reachable by web user interface, direct API
+  and SFTP, but that interface is delivered under customer contract: the product documentation portal
+  is authenticated and no public specification is published. The company''s one public machine-readable
+  artifact is simm-lib, an MIT-licensed Java implementation of the ISDA SIMM initial-margin model.'
 url: https://raw.githubusercontent.com/api-evangelist/acadiasoft/refs/heads/main/apis.yml
+image: https://avatars.githubusercontent.com/u/30508839?v=4
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+x-tier: profiled
+x-tier-reason: enrichment
 specificationVersion: '0.20'
+position: Producing
 created: '2026-09-06'
 modified: '2026-09-06'
 tags:
 - Company
+- Financial Services
+- Capital Markets
+- Derivatives
+- Risk Management
+- Collateral Management
+- Margin
+- Post Trade
+- Regulatory Compliance
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +37,57 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: ParentCompany
+  url: https://apis.io/providers/london-stock-exchange-group/
+  name: London Stock Exchange Group
+  x-relationship: acquired
+  x-evidence: LSEG agreed to acquire Acadia in December 2022 and completed it in 2023; acadia.inc
+    now 301s wholesale to www.lseg.com/en/post-trade/solutions/acadia and DMARC on acadia.inc and
+    acadiasoft.com reports to rua@lseg.com.
+- type: DomainSecurity
+  url: security/acadiasoft-domain-security.yml
 - type: Website
-  url: https://forgeglobal.com/acadiasoft_stock/
+  url: https://www.lseg.com/en/post-trade/solutions/acadia
+- type: GitHubOrganization
+  url: https://github.com/AcadiaSoft
+- type: SourceCode
+  url: https://github.com/AcadiaSoft/simm-lib
+- type: Packages
+  url: packages/acadiasoft-packages.yml
+- type: Conformance
+  url: conformance/acadiasoft-conformance.yml
+- type: Lifecycle
+  url: lifecycle/acadiasoft-lifecycle.yml
+- type: ChangeLog
+  url: changelog/acadiasoft-changelog.yml
+- type: LLMsTxt
+  url: llms/acadiasoft-llms.txt
+- type: Plans
+  url: plans/acadiasoft-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/acadiasoft-rate-limits.yml
+x-enrichment:
+  date: '2026-09-06'
+  status: minimal
+  artifacts_added: 10
+  pass: local-v3
+x-coverage:
+  state: gated
+  reason: customer-only-docs
+  detail: Acadia's entire product documentation set lives on an Atlassian Confluence instance at
+    portal.acadiasoft.com whose every anonymous request 302s to an OAuth2 authorization endpoint
+    with realm=docportal, and whose own OpenID/RFC 8414 discovery documents return 401 — so the direct
+    API its factsheets advertise has no publicly readable contract, reference or limits.
+  evidence:
+  - url: https://portal.acadiasoft.com/
+    status: 302
+  - url: https://portal.acadiasoft.com/identity/.well-known/openid-configuration
+    status: 401
+  - url: https://acadia.inc/openapi.json
+    status: 301
+  - url: https://www.lseg.com/en/post-trade/solutions/streamline/margin-manager
+    status: 200
+  checked: '2026-09-06'
+x-parent: london-stock-exchange-group
+x-relationship: acquisition
+x-acquired: 2023

@@ -1,0 +1,20 @@
+generated: '2026-09-06'
+method: searched
+source: search of every publicly reachable Acadia and LSEG Post Trade surface on
+  2026-09-06 for published API limits
+limit_count: 0
+headers: []
+exhaustion_status_code: null
+note: 'No rate limits are published. Acadia''s own factsheets confirm a direct API
+  exists ("accessed via Web user interface, direct API or SFTP"), but every technical
+  document describing it sits behind the authenticated portal at portal.acadiasoft.com,
+  so no throttle, quota, window, burst allowance or response-header contract
+  (X-RateLimit-*, RateLimit-*, Retry-After) could be observed or read. This is an
+  honest zero produced by a documentation wall, not by an absence of limits — the
+  limits almost certainly exist and are stated in the customer contract.'
+rate_limits: []
+evidence:
+- {url: 'https://portal.acadiasoft.com/', status: 302, finding: 302 to OAuth2 login;
+    documentation portal is customer-authenticated}
+- {url: 'https://www.lseg.com/en/post-trade/solutions/streamline/margin-manager', status: 200,
+  finding: names API access, publishes no limits}

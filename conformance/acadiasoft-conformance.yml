@@ -1,0 +1,83 @@
+generated: '2026-09-06'
+method: searched
+source: https://github.com/AcadiaSoft/simm-lib (README + module structure + benchmark
+  test suite), plus live probes of portal.acadiasoft.com on 2026-09-06
+note: 'Acadia publishes no OpenAPI, so none of these entries is derived from an API
+  contract. They are read from the one machine-readable artifact Acadia does publish
+  (simm-lib) and from a live probe of its customer portal. Everything Acadia asserts
+  about API conformance sits behind the authenticated documentation portal and is
+  therefore NOT recorded here. No certification programme (SOC 2 / ISO 27001 / PCI)
+  is published on any reachable Acadia surface, so no `Compliance` pointer is emitted.'
+conformance:
+- id: isda-simm
+  name: ISDA SIMM (Standard Initial Margin Model) v2.5
+  category: domain-standard
+  market: uncleared OTC derivatives / initial margin
+  conforms: true
+  evidence: https://github.com/AcadiaSoft/simm-lib/blob/master/README.md
+  detail: 'simm-lib is a first-party implementation of SIMM 2.5 and all previous versions.
+    The README records that the library passes ISDA''s own one-day AND ten-day benchmark
+    suites for v2.5 across multiple applicable regulations in both Segregated and
+    Unsegregated modes — i.e. conformance is demonstrated against the standards body''s
+    published test vectors, not merely claimed in prose. The `simm` and `simm-ple`
+    Maven modules are the shipped conformance surface.'
+  caveat: This is conformance of a published LIBRARY to the standard. It is not a
+    conformance statement about an API contract, because Acadia publishes no API contract.
+- id: isda-crif
+  name: ISDA CRIF (Common Risk Interchange Format)
+  category: domain-standard
+  market: uncleared OTC derivatives / risk sensitivity interchange
+  conforms: true
+  evidence: https://github.com/AcadiaSoft/simm-lib/blob/master/README.md
+  detail: 'The library''s entire public input surface is CRIF-shaped. The README documents
+    the CRIF record types it consumes verbatim — Sensitivity(productClass, riskType,
+    qualifier, bucket, label1, label2, amount, amountCurrency, amountUsd),
+    AddOnNotional, AddOnFixedAmount, AddOnNotionalFactor, ProductMultiplier,
+    ScheduleNotional, SchedulePv — and the `Crif` supertype is described as intended
+    to "directly translate a standard CRIF file into a List<Crif>". Column semantics
+    (amountCurrency / amountUSD, postRegulation / collectRegulation) match the CRIF
+    specification. This is the strongest domain-standard signature on the record.'
+- id: isda-schedule
+  name: ISDA Schedule (grid) initial margin method
+  category: domain-standard
+  market: uncleared OTC derivatives / initial margin
+  conforms: true
+  evidence: https://github.com/AcadiaSoft/simm-lib/tree/master/schedule
+  detail: The `schedule` module implements the ISDA Schedule/grid method as an alternative
+    to SIMM, netting trade-level notionals and PVs and computing the net gross ratio.
+- id: oauth2
+  name: OAuth 2.0 authorization code flow
+  category: cross-cutting
+  conforms: true
+  scope: customer-documentation-portal
+  evidence: https://portal.acadiasoft.com/identity/oauth2/authz?response_type=code&realm=docportal
+  detail: 'Probed anonymously 2026-09-06. The portal root 302s to an RFC 6749 authorization
+    endpoint carrying response_type=code, client_id, realm=docportal and a
+    redirect_uri of /plugins/servlet/oauth2callback, which renders a login page (HTTP 200).
+    Recorded for the auth surface it proves exists; this governs access to Acadia''s
+    Confluence documentation portal and says nothing about how the product API authenticates.'
+- id: oauth2-server-metadata
+  name: RFC 8414 OAuth 2.0 Authorization Server Metadata
+  category: cross-cutting
+  conforms: false
+  evidence: https://portal.acadiasoft.com/identity/.well-known/oauth-authorization-server
+  detail: Returns HTTP 401. The authorization server exists but publishes no anonymously
+    readable discovery document, so no client can self-configure against it.
+- id: rfc9457
+  name: RFC 9457 Problem Details for HTTP APIs
+  category: cross-cutting
+  conforms: null
+  evidence: null
+  detail: Undeterminable — no public API contract or error reference is published.
+- id: rfc9116
+  name: RFC 9116 security.txt
+  category: cross-cutting
+  conforms: false
+  evidence: well-known/acadiasoft-well-known.yml
+  detail: Probed on five hosts; no security.txt served on any of them.
+domain_standards_summary: 'Acadia''s market — uncleared OTC derivatives margining — has
+  a real interchange standard (ISDA CRIF) and a real model standard (ISDA SIMM), and
+  Acadia ships a benchmark-passing open implementation of both. A counterparty that
+  already speaks CRIF can hand Acadia''s library a standard CRIF file with no bespoke
+  connector. What is missing is the same standards posture expressed as a callable
+  contract: none of it is reachable over an API a non-customer can describe.'

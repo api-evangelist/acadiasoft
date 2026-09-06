@@ -1,0 +1,57 @@
+generated: '2026-09-06'
+method: probed
+source: live DNS/TLS/HTTP probes of the apis.yml Website host plus Acadia's own registrable
+  domains (acadia.inc, acadiasoft.com) and the live customer portal host
+note: 'Acadia''s own domain acadia.inc still resolves and terminates TLS but serves only
+  a blanket 301 to www.lseg.com; acadiasoft.com no longer resolves at the apex. The
+  DMARC aggregate/forensic mailboxes on BOTH Acadia domains are @lseg.com, which is
+  independent confirmation that LSEG now operates the mail and DNS estate.'
+hosts:
+- host: www.lseg.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Apr  6 23:59:59 2027 GMT
+  hsts: true
+  hsts_max_age: 63072000
+- host: acadia.inc
+  https: true
+  tls_version: TLSv1.3
+  cert_issuer: Google Trust Services WE1
+  cert_expires: Oct 23 00:18:58 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+  hsts_include_subdomains: true
+  note: serves HTTP 301 to https://www.lseg.com/en/post-trade/solutions/acadia for every
+    path probed, including all /.well-known/* paths
+- host: portal.acadiasoft.com
+  https: true
+  tls_version: TLSv1.2
+  cert_issuer: Sectigo Public Server Authentication CA OV R36
+  cert_expires: Apr  6 23:59:59 2027 GMT
+  hsts: true
+  hsts_max_age: 31536000
+  hsts_include_subdomains: true
+  note: Atlassian Confluence customer documentation portal; 302s every anonymous request
+    to an OAuth2 authorization endpoint (realm=docportal)
+domains:
+- domain: lseg.com
+  dnssec: true
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: reject
+- domain: acadia.inc
+  dnssec: true
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: reject
+  dmarc_rua: rua@lseg.com
+- domain: acadiasoft.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: reject
+  dmarc_rua: rua@lseg.com
+  note: apex has no A record; only portal.acadiasoft.com still resolves
