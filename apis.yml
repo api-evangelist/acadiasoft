@@ -11,6 +11,21 @@ description: 'Acadia, founded in 2009 as AcadiaSoft, provides risk, margin and c
   is authenticated and no public specification is published. The company''s one public machine-readable
   artifact is simm-lib, an MIT-licensed Java implementation of the ISDA SIMM initial-margin model.'
 url: https://raw.githubusercontent.com/api-evangelist/acadiasoft/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  license_evidence:
+    not_product:
+    - acadiasoft/simm-lib
+  open_source: unknown
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: low
+  source:
+  - pricing
+  - repository-not-product
+  generated: '2026-09-25'
+  method: derived
 image: https://avatars.githubusercontent.com/u/30508839?v=4
 x-type: company
 x-source: harvest:secondary-market
@@ -22,7 +37,7 @@ created: '2026-09-06'
 modified: '2026-09-06'
 tags:
 - Company
-- Financial-Services
+- Financial Services
 - Capital Markets
 - Derivatives
 - Risk Management
@@ -40,6 +55,7 @@ tags_raw:
 - Margin
 - Post Trade
 - Regulatory Compliance
+- Financial-Services
 apis: []
 maintainers:
 - FN: Kin Lane
