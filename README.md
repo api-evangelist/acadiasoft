@@ -66,29 +66,90 @@
 
 Acadia, founded in 2009 as AcadiaSoft, provides risk, margin and collateral management services to the global uncleared OTC derivatives market and now operates as part of LSEG Post Trade following LSEG's December 2022 acquisition. Its AcadiaPlus platform — Agreement Manager, Margin Manager, Collateral Manager, IM Exposure Manager, Payments Manager, Settlement Manager and Relay, alongside the Risk Suite analytics services — connects more than 2,000 market participants for initial-margin calculation, margin-call messaging, reconciliation, dispute resolution and settlement. Acadia's own factsheets state its applications are reachable by web user interface, direct API and SFTP, but that interface is delivered under customer contract: the product documentation portal is authenticated and no public specification is published. The company's one public machine-readable artifact is simm-lib, an MIT-licensed Java implementation of the ISDA SIMM initial-margin model.
 
-## At a glance
+**Areas:** Company · Financial Services · Capital Markets · Derivatives · Risk Management · Collateral Management · Margin · Post-Trade · Regulatory Compliance
 
-| | |
+## Acadia on APIs.io
+
+Everything profiled for Acadia is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/acadiasoft/](https://apis.io/providers/acadiasoft/)** — or go straight to one of the APIs or properties below.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Acadiasoft Domain Security](https://apis.io/security/acadiasoft/acadiasoft-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Acadiasoft Plans Pricing](https://apis.io/plans/acadiasoft/acadiasoft-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Acadiasoft Rate Limits](https://apis.io/rate-limits/acadiasoft/acadiasoft-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.lseg.com/en/post-trade/solutions/acadia)
+- [GitHub](https://github.com/AcadiaSoft)
+
+## API Evangelist rating
+
+**Kin Score 9.4** — minimal · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
 |---|---|
-| Website | https://www.lseg.com/en/post-trade/solutions/acadia |
-| Parent company | London Stock Exchange Group (LSEG) — acquisition announced 2022-12-19 |
-| Source | https://github.com/AcadiaSoft |
-| Public API contract | **None found.** No OpenAPI, Swagger, GraphQL, AsyncAPI, gRPC or WSDL on any host, probed 2026-09-06 |
-| Documentation | Customer-authenticated (https://portal.acadiasoft.com/, OAuth2, realm `docportal`) |
-| Coverage | `gated` / `customer-only-docs` |
+| Discoverability | 55.4 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 18.4 |
+| Developer ergonomics | 0.0 |
+| Access clarity | 0.0 |
 
-## What was found
+**Agent readiness 2.5** — human-only
 
-- **`simm-lib`** — the one public machine-readable artifact: an MIT-licensed, first-party Java
-  implementation of the **ISDA SIMM 2.5** initial margin model and the **ISDA Schedule** method,
-  consuming **ISDA CRIF**-formatted input. It passes ISDA's own one-day and ten-day benchmark
-  suites. Latest tag `2.5.0` (2022-09-19); last commit 2023-07-25, which added a README note
-  directing users to the Open Source Risk Engine for all future SIMM versions.
-- **No client SDK** for the Acadia API is published anywhere, so no `SDKs` pointer is claimed.
-- **No `/.well-known/` document** on any of the five hosts probed, and no A2A agent card.
-- **No MCP server.** LSEG's own remote MCP server was found and *rejected* on ownership grounds —
-  it serves the parent group's market data, not Acadia's post-trade products. See `mcp/`.
-- **No pricing, rate limits, status page, SLA or deprecation policy** published.
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
 
-Acadia's own factsheets state Margin Manager is "accessed via Web user interface, direct API or
-SFTP". That API is real; every document describing it is behind the customer portal.
+**Regulatory alignment 15.7** — Securities & Market Data
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/acadiasoft/](https://apis.io/providers/acadiasoft/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Acadia: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/acadiasoft/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
